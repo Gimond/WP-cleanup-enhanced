@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Wordpress Clean up enhanced
  * Plugin URI: 
- * Description: My personal basic clean ups of wordpress admin including dashboard widgets, admin menu and sub menu, meta boxes, columns settings removal and security header junk tags cleanups. The plugin also adds twitter and facebook url in profil and other goodies from <a href= "http://wordpress.org/extend/plugins/selfish-fresh-start/" title="wordpress plugin page for Selfish fresh start"> the Selfish fresh start plugin </a> and an admin and login stylesheet to custom the admin, inpired by Valentin Brandt from <a href="http://www.geekeries.fr/snippet/personnaliser-interface-ui-wordpress-3-2/" title="Personnaliser l’interface de WordPress 3.2"> Geekeries</a>. Note that you might have to dig in this plugin code to comment or uncomment some lines to make it suite your needs.
+ * Description: My personal basic clean ups of wordpress admin including dashboard widgets, admin menu and sub menu, meta boxes, columns settings removal and security header junk tags cleanups. The plugin also adds twitter and facebook url in profil and other goodies from <a href= "http://wordpress.org/extend/plugins/selfish-fresh-start/" title="wordpress plugin page for Selfish fresh start"> the Selfish fresh start plugin </a> and an admin and login stylesheet to custom the admin, inpired by Valentin Brandt from <a href="http://www.geekeries.fr/snippet/personnaliser-interface-ui-wordpress-3-2/" title="Personnaliser lï¿½interface de WordPress 3.2"> Geekeries</a>. Note that you might have to dig in this plugin code to comment or uncomment some lines to make it suite your needs.
  * Author: Stephanie Walter (akka Inpixelitrust)
  * Author URI: 
  * Version: 1.3
@@ -32,6 +32,7 @@
 	/* Add admin custom actions styles*/
 	add_action('login_head', 'style_my_login_please'); // add a custom css for the login form
 	add_action('admin_head', 'style_my_admin_please'); // add a custom css for the admin area
+	add_editor_style('css/custom_editor.css'); // add a custom css for the editor (tinymce)
 	
 	/* other clean ups */
 	// add_action( 'init', 'wce_remove_l1on' ); remove the l10n.js script http://eligrey.com/blog/post/passive-localization-in-javascript
@@ -268,7 +269,7 @@ stylesheets are in the plugin directory, you can change the content to make it s
 
 function style_my_login_please() {  
 /** stylesheet link for login **/
-echo '<link rel="stylesheet" type="text/css" href="' .plugins_url( 'css/custom_login.css' , __FILE__ ). '"/>';
+	echo '<link rel="stylesheet" type="text/css" href="' .plugins_url( 'css/custom_login.css' , __FILE__ ). '"/>';
 }
 
 /** stylesheet link for admin **/
